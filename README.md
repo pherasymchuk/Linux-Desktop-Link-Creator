@@ -6,6 +6,7 @@ A simple PySide6 GUI application for Linux desktops to easily create `.desktop` 
 Tired of creating `.desktop` files in `~/.local/share/applications` and managing icons in `~/.local/share/icons` every time you have a new script or GUI app? This tool automates the process!
 
 ## Features
+<img src="Desktop Link Creator.png" alt="App Icon" width="40%" height="40%">
 
 *   **Graphical User Interface:** Easy-to-use interface built with PySide6.
 *   **Script/Program Selection:** Browse and select the main executable or script file.
