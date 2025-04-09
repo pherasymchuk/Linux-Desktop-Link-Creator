@@ -44,7 +44,7 @@ Tired of creating `.desktop` files in `~/.local/share/applications` and managing
 1.  **Clone the Repository:**
     ```bash
     git clone https://github.com/pherasymchuk/Linux-Desktop-Link-Creator
-    cd desktop-link-creator
+    cd Linux-Desktop-Link-Creator
     ```
 
 2.  **(Optional but Recommended) Create a Virtual Environment:**
