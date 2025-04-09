@@ -1,6 +1,5 @@
 # Desktop Link Creator 🐧✨
-
-**(Your Icon Here - e.g., ![Icon](ldlc_icon.png))**
+<img src="ldlc_icon.png" alt="App Icon" width="20%" height="20%">
 
 A simple PySide6 GUI application for Linux desktops to easily create `.desktop` application launchers (shortcuts) without manually editing files.
 
