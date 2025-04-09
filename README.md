@@ -43,7 +43,7 @@ Tired of creating `.desktop` files in `~/.local/share/applications` and managing
 
 1.  **Clone the Repository:**
     ```bash
-    git clone <your-repository-url>
+    git clone https://github.com/pherasymchuk/Linux-Desktop-Link-Creator
     cd desktop-link-creator
     ```
 
