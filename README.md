@@ -38,6 +38,7 @@ Tired of creating `.desktop` files in `~/.local/share/applications` and managing
 *   **Linux Desktop Environment:** Tested on environments following Freedesktop standards (GNOME, KDE, XFCE, etc.).
 *   **Python 3:** Version 3.7 or higher recommended.
 *   **pip:** Python package installer (usually included with Python).
+*   **python3-venv:** Package providing the `venv` module (often installed by default, but sometimes needs explicit installation, e.g., `sudo apt install python3-venv` on Debian/Ubuntu).
 
 **Steps:**
 
@@ -47,23 +48,29 @@ Tired of creating `.desktop` files in `~/.local/share/applications` and managing
     cd Linux-Desktop-Link-Creator
     ```
 
-2.  **(Optional but Recommended) Create a Virtual Environment:**
-    ```bash
-    python3 -m venv venv
-    ```
+2. **System-wide Install with Override (Use with Caution!)**
 
-3.  **Install Dependencies:**
+    If you understand the risks and prefer not to use a virtual environment, you can try to force a system-wide installation.
+
+    *   **Warning:** This flag `--break-system-packages` tells `pip` to ignore the protection put in place by your Linux distribution (like Debian, Ubuntu, Fedora). Installing packages this way can potentially interfere with or break system tools that rely on specific versions of Python libraries managed by your distribution's package manager (`apt`, `dnf`, etc.). **Use this method at your own risk.**
+
     ```bash
-    python3 -m pip install pyside6
+    # Run this command directly after cloning, without creating or activating a venv
+    python3 -m pip install --break-system-packages pyside6
     ```
 
 ## Usage
 
 1.  **Run the Application:**
-    ```bash
-    python3 desktop_entry_creator.py # Or the specific name you saved the script as
-    ```
-    (If you created a virtual environment, make sure it's activated first).
+    *   **If you installed system-wide (with `--break-system-packages`):**
+        ```bash
+        python3 desktop_entry_creator.py # Or the specific name you saved the script as
+        ```
+   *   **If using a Virtual Environment:** Make sure it's activated first in your terminal!
+        ```bash
+        source venv/bin/activate # If not already active in this terminal session
+        python3 desktop_entry_creator.py # Or the specific name you saved the script as
+        ```
 
 2.  **Fill in the Details:**
     *   **Application Name:** Enter the desired name for your shortcut (e.g., "My Custom Script"). This will also influence the generated filenames.
@@ -73,13 +80,13 @@ Tired of creating `.desktop` files in `~/.local/share/applications` and managing
         *   `Python3 Script`: To run a `.py` file using `python3`.
         *   `Java JAR`: To run a `.jar` file using `java -jar`.
         *   `Bash Script`: To run a `.sh` file using `bash`.
-        *   `Custom Command Prefix (*Recommended*)`: If you need a specific command before the script path (e.g., `/opt/my-app/bin/run`, `wine`, `specific_java_version`).
-*   **Interpreter/Command Prefix:**
-    *   This field is active for Python, Java, Bash, and Custom methods.
-    *   **Recommendation:** To avoid errors caused by incorrect program versions or missing `PATH` entries, it's **highly recommended** to explicitly specify the full path to the interpreter here. Click "Browse..." to find it (e.g., `/usr/bin/python3.10`, `/opt/jdk-17/bin/java`, `/bin/bash`).
-    *   If left blank *only* for Python/Java/Bash methods, the tool will *attempt* to use the default command found in your system's `PATH` (e.g., `python3`, `java`, `bash`), but this may lead to unexpected behavior if the wrong version is found first or if the command isn't in the standard `PATH`.
-    *   For "Custom", this field *is* the command prefix you need.
-    *   Previously used custom interpreters are saved in the dropdown history.
+        *   `Custom Command Prefix`: If you need a specific command before the script path (e.g., `/opt/my-app/bin/run`, `wine`, `specific_java_version`).
+    *   **Interpreter/Command Prefix:**
+        *   This field is active for Python, Java, Bash, and Custom methods.
+        *   **Recommendation:** To avoid errors caused by incorrect program versions or missing `PATH` entries, it's **highly recommended** to explicitly specify the full path to the interpreter here. Click "Browse..." to find it (e.g., `/usr/bin/python3.10`, `/opt/jdk-17/bin/java`, `/bin/bash`).
+        *   If left blank *only* for Python/Java/Bash methods, the tool will *attempt* to use the default command found in your system's `PATH` (e.g., `python3`, `java`, `bash`), but this may lead to unexpected behavior if the wrong version is found first or if the command isn't in the standard `PATH`.
+        *   For "Custom", this field *is* the command prefix you need.
+        *   Previously used custom interpreters are saved in the dropdown history.
     *   **Icon File:** Click "Icon..." and select a `.png` or `.svg` file. A preview will be shown.
     *   **Run in Terminal:** Check this box if your script is a command-line application that needs a terminal window to run or show output. Uncheck for GUI applications.
     *   **Comment:** (Optional) A short description of the application.
